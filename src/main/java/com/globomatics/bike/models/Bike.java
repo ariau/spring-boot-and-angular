@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 //POJO : Plain Old Java Object. model qui a les infos de purchase du vélo
 //Hibernate implemente automatiquement des méthdde qu'on ne veut pas utiliser car on préfère utiliser Jackson (JSON)
