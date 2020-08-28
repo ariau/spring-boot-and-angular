@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 
 const httpOptions = {
-  headers: new Headers({'Content-Type' : 'application/json'})
+  headers: new HttpHeaders({'Content-Type' : 'application/json'})
 };
 
 @Injectable({
@@ -23,7 +22,7 @@ export class BikeService {
 
   createBikeRegistration(bike){
     let body = JSON.stringify(bike);
-    this.http.post('server/api/v1/bikes', body, httpOptions);
+    return this.http.post('server/api/v1/bikes', body, httpOptions);
   }
 
 
