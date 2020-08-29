@@ -33,6 +33,10 @@ public class Bike {
 
     protected Bike (){};
 
+    public Long getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
