@@ -2,7 +2,7 @@ html {
     height: 100%;
   }
   
-  body {
+  body, nav {
     padding-top: 10px;
     padding-bottom: 10px;
     text-rendering: optimizeLegibility;
@@ -22,4 +22,9 @@ html {
   
   .table-bordered, .table-bordered td, .table-bordered th {
     border: 1px solid #2F465D;
+  }
+
+  a:hover {
+    color: #87d3f8;
+    text-decoration: underline overline;
   }
