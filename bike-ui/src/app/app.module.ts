@@ -9,8 +9,10 @@ import { BikeService } from './services/bike.service';
 import { AdminComponent } from './components/admin/admin.component';
 import { HomeComponent } from './components/home/home.component';
 import { ViewRegistrationComponent } from './components/view-registration/view-registration.component';
-import { CallbackComponent } from './components/callback/callback.component';
-import { AuthService } from './services/auth.service';
+import { AuthGuard } from './services/auth.guard';
+import { AuthService0 } from './services/auth0.service';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { AuthService } from './services/auth.service';
     AdminComponent,
     HomeComponent,
     ViewRegistrationComponent,
-    CallbackComponent
+    NavBarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,7 @@ import { AuthService } from './services/auth.service';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [BikeService, AuthService],
+  providers: [BikeService, AuthService0, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
