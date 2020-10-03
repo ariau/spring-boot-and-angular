@@ -17,6 +17,7 @@
 
   <properties>
     <java.version>1.8</java.version>
+
     <jar-file-name>bikeapp</jar-file-name>
     <heroku-maven.appName>spring-boot-angular-appl</heroku-maven.appName>
     <heroku-maven.version>2.0.16</heroku-maven.version>
@@ -191,5 +192,4 @@
       </plugin>
     </plugins>
   </build>
-
 </project>
