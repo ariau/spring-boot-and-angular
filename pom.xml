@@ -104,27 +104,6 @@
         <groupId>org.codehaus.mojo</groupId>
         <version>${exec-maven.version}</version>
       </plugin>
-      <plugin>
-        <artifactId>maven-git-code-format</artifactId>
-        <executions>
-          <!-- Creates a pre-commit hook to automatically format the modified java files -->
-          <execution>
-            <goals>
-              <goal>install-hooks</goal>
-            </goals>
-            <id>install-formatter-hook</id>
-          </execution>
-          <!-- Maven verify fails if any file is not properly formatted -->
-          <execution>
-            <goals>
-              <goal>validate-code-format</goal>
-            </goals>
-            <id>validate-code-format</id>
-          </execution>
-        </executions>
-        <groupId>com.cosium.code</groupId>
-        <version>${maven-git-code-format.version}</version>
-      </plugin>
       <!-- code coverage -->
       <plugin>
         <artifactId>jacoco-maven-plugin</artifactId>
