@@ -1,6 +1,7 @@
 package com.globomatics.bike.config;
 
 import com.auth0.spring.security.api.JwtWebSecurityConfigurer;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -31,4 +32,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .anyRequest()
         .authenticated();
   }
+
 }
