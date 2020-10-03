@@ -13,8 +13,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Validate code formatting
-        run: mvn git-code-format:validate-code-format
       - name: Build with Maven
         run: mvn -B package --file pom.xml
       - name: Running tests
