@@ -129,48 +129,6 @@
         <groupId>org.jacoco</groupId>
         <version>${jacoco-maven.version}</version>
       </plugin>
-      <!-- Deployment -->
-      <plugin>
-        <!-- create an uber-jar for deployment -->
-        <artifactId>maven-shade-plugin</artifactId>
-        <configuration>
-          <filters>
-            <filter>
-              <artifact>*:*</artifact>
-              <excludes>
-                <exclude>module-info.class</exclude>
-              </excludes>
-            </filter>
-          </filters>
-          <transformers>
-            <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-              <resource>META-INF/spring.handlers</resource>
-            </transformer>
-            <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-              <resource>META-INF/spring.schemas</resource>
-            </transformer>
-          </transformers>
-        </configuration>
-        <executions>
-          <execution>
-            <goals>
-              <goal>shade</goal>
-            </goals>
-            <phase>package</phase>
-          </execution>
-        </executions>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>${maven-shade.version}</version>
-      </plugin>
-      <plugin>
-        <!-- resolve warnings for duplicated dependencies -->
-        <artifactId>maven-jar-plugin</artifactId>
-        <configuration>
-          <forceCreation>true</forceCreation>
-        </configuration>
-        <groupId>org.apache.maven.plugins</groupId>
-        <version>${maven-jar.version}</version>
-      </plugin>
       <plugin>
         <!--deploy on Heroku -->
         <artifactId>heroku-maven-plugin</artifactId>
