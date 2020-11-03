@@ -87,6 +87,10 @@
     <!-- constant name for heroku deployment -->
     <finalName>${jar-file-name}</finalName>
     <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
       <!-- general -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
