@@ -84,14 +84,32 @@
   </dependencies>
 
   <build>
-    <!-- constant name for heroku deployment -->
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler.version}</version> <!-- or newer version -->
+        <configuration>
+          <source>1.8</source> <!-- depending on your project -->
+          <target>1.8</target> <!-- depending on your project -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+ <!-- <build>
+    &lt;!&ndash; constant name for heroku deployment &ndash;&gt;
     <finalName>${jar-file-name}</finalName>
     <plugins>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
-      <!-- general -->
+      &lt;!&ndash; general &ndash;&gt;
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
@@ -109,7 +127,7 @@
         <groupId>org.codehaus.mojo</groupId>
         <version>${exec-maven.version}</version>
       </plugin>
-      <!-- code coverage -->
+      &lt;!&ndash; code coverage &ndash;&gt;
       <plugin>
         <artifactId>jacoco-maven-plugin</artifactId>
         <executions>
@@ -130,7 +148,7 @@
         <version>${jacoco-maven.version}</version>
       </plugin>
       <plugin>
-        <!--deploy on Heroku -->
+        &lt;!&ndash;deploy on Heroku &ndash;&gt;
         <artifactId>heroku-maven-plugin</artifactId>
         <configuration>
           <appName>${heroku-maven.appName}</appName>
@@ -145,13 +163,13 @@
         <groupId>com.heroku.sdk</groupId>
         <version>${heroku-maven.version}</version>
       </plugin>
-      <!-- Tests -->
+      &lt;!&ndash; Tests &ndash;&gt;
       <plugin>
-        <!-- used to run tests with maven, default version doesn't work well with JUnit5 -->
+        &lt;!&ndash; used to run tests with maven, default version doesn't work well with JUnit5 &ndash;&gt;
         <artifactId>maven-surefire-plugin</artifactId>
         <groupId>org.apache.maven.plugins</groupId>
         <version>${maven-surefire.version}</version>
       </plugin>
     </plugins>
-  </build>
+  </build>-->
 </project>
