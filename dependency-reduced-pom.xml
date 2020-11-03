@@ -32,25 +32,6 @@
         </configuration>
       </plugin>
       <plugin>
-        <groupId>com.cosium.code</groupId>
-        <artifactId>maven-git-code-format</artifactId>
-        <version>${maven-git-code-format.version}</version>
-        <executions>
-          <execution>
-            <id>install-formatter-hook</id>
-            <goals>
-              <goal>install-hooks</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>validate-code-format</id>
-            <goals>
-              <goal>validate-code-format</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <groupId>org.jacoco</groupId>
         <artifactId>jacoco-maven-plugin</artifactId>
         <version>${jacoco-maven.version}</version>

@@ -18,7 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1/bikes")
 public class BikesController {
 
-  @Autowired private BikeRepository bikeRepository;
+  @Autowired
+  private BikeRepository bikeRepository;
 
   @GetMapping
   public List<Bike> bikes() {
