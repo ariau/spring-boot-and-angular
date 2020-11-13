@@ -13,90 +13,62 @@
   <version>0.0.1-SNAPSHOT</version>
   <description>Demo project for Spring Boot</description>
   <build>
-    <finalName>${jar-file-name}</finalName>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${maven-compiler.version}</version>
         <configuration>
-          <source>${java.version}</source>
-          <target>${java.version}</target>
+          <source>1.8</source>
+          <target>1.8</target>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>exec-maven-plugin</artifactId>
-        <version>${exec-maven.version}</version>
-        <configuration>
-          <mainClass>${main-class}</mainClass>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>com.cosium.code</groupId>
-        <artifactId>maven-git-code-format</artifactId>
-        <version>${maven-git-code-format.version}</version>
-        <executions>
-          <execution>
-            <id>install-formatter-hook</id>
-            <goals>
-              <goal>install-hooks</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>validate-code-format</id>
-            <goals>
-              <goal>validate-code-format</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>${jacoco-maven.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>prepare-agent</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>generate-code-coverage-report</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>${maven-shade.version}</version>
+        <version>3.2.4</version>
         <executions>
           <execution>
             <phase>package</phase>
             <goals>
               <goal>shade</goal>
             </goals>
+            <configuration>
+              <transformers>
+                <transformer>
+                  <resource>META-INF/spring.handlers</resource>
+                </transformer>
+                <transformer>
+                  <resource>META-INF/spring.factories</resource>
+                </transformer>
+                <transformer>
+                  <resource>META-INF/spring.schemas</resource>
+                </transformer>
+                <transformer />
+                <transformer>
+                  <mainClass>com.globomatics.bike.BikeApplication</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
           </execution>
         </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>2.3.4.RELEASE</version>
+          </dependency>
+        </dependencies>
         <configuration>
+          <keepDependenciesWithProvidedScope>true</keepDependenciesWithProvidedScope>
+          <createDependencyReducedPom>true</createDependencyReducedPom>
           <filters>
             <filter>
               <artifact>*:*</artifact>
               <excludes>
-                <exclude>module-info.class</exclude>
+                <exclude>META-INF/*.SF</exclude>
+                <exclude>META-INF/*.DSA</exclude>
+                <exclude>META-INF/*.RSA</exclude>
               </excludes>
             </filter>
           </filters>
-          <transformers>
-            <transformer>
-              <resource>META-INF/spring.handlers</resource>
-            </transformer>
-            <transformer>
-              <resource>META-INF/spring.schemas</resource>
-            </transformer>
-          </transformers>
         </configuration>
       </plugin>
       <plugin>
@@ -120,10 +92,6 @@
             <web>java -Dport=$PORT -jar target/${jar-file-name}.jar</web>
           </processTypes>
         </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${maven-surefire.version}</version>
       </plugin>
     </plugins>
   </build>
@@ -235,6 +203,13 @@
       <artifactId>auth0-spring-security-api</artifactId>
       <version>1.4.0</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-dependencies</artifactId>
+      <version>1.2.7.RELEASE</version>
+      <type>pom</type>
+      <scope>import</scope>
     </dependency>
   </dependencies>
   <properties>
