@@ -1,6 +1,5 @@
 # spring-boot-and-angular
 Project with Spring-JPA and Angular JS, The bike shop
-
 This project is the api for the Angular SPA appication to register bikes.
 
 [cors_preflight]: https://www.baeldung.com/spring-security-cors-preflight
