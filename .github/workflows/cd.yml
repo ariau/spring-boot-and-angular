@@ -27,4 +27,7 @@ jobs:
         uses: azure/cli@v2
         with:
           inlineScript: |
-            mvn package azure-webapp:deploy
+            echo "Packaging application..."
+            mvn package
+            echo "Deploying to Azure..."
+            mvn azure-webapp:deploy
