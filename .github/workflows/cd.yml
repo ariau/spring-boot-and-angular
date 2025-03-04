@@ -26,6 +26,7 @@ jobs:
       - name: Azure CLI script file
         uses: azure/cli@v2
         with:
+          azcliversion: 2.66.1
           inlineScript: |
             echo "Packaging application..."
             mvn package
