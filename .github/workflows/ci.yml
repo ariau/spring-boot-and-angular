@@ -24,7 +24,7 @@ jobs:
       uses: Azure/webapps-deploy@v3
       with:
         app-name: Spring-boot-angular-app
-        package: ${{ github.workspace }}/target/*.jar
+        package: ${{ github.workspace }}/target/bike-0.0.1-SNAPSHOT.jar
 
     # Azure logout 
     - name: logout
