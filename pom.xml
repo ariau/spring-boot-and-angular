@@ -183,15 +183,15 @@
             <javaVersion>Java 8</javaVersion>  
             <webContainer>JAVA</webContainer> 
           </runtime>  
-          <deployment> 
-            <resources> 
-              <resource> 
-                <directory>${project.basedir}/target</directory>  
-                <includes> 
-                  <include>target/${jar-file-name}.jar</include> 
-                </includes> 
-              </resource> 
-            </resources> 
+          <deployment>
+            <resources>
+                <resource>
+                    <directory>${project.basedir}/target</directory>
+                    <includes>
+                        <include>*.jar</include>
+                    </includes>
+                </resource>
+            </resources>
           </deployment>
         </configuration> 
       </plugin>
