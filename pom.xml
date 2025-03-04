@@ -167,20 +167,33 @@
           <forceCreation>true</forceCreation>
         </configuration>
       </plugin>
-      <plugin>
-        <artifactId>heroku-maven-plugin</artifactId>
-        <configuration>
-          <appName>${heroku-maven.appName}</appName>
-          <includeTarget>false</includeTarget>
-          <includes>
-            <include>target/${jar-file-name}.jar</include>
-          </includes>
-          <processTypes>
-            <web>java -Dport=$PORT -jar target/${jar-file-name}.jar</web>
-          </processTypes>
-        </configuration>
-        <groupId>com.heroku.sdk</groupId>
-        <version>${heroku-maven.version}</version>
+      <plugin> 
+        <groupId>com.microsoft.azure</groupId>  
+        <artifactId>azure-webapp-maven-plugin</artifactId>  
+        <version>2.13.0</version>  
+        <configuration> 
+          <schemaVersion>v2</schemaVersion>  
+          <subscriptionId>6f1e0ed0-9b37-47fe-a3ee-059ece2f2c3f</subscriptionId>  
+          <resourceGroup>ResourceMoverRG-eastus2-eastus-eus2</resourceGroup>  
+          <appName>Spring-boot-angular-app</appName>  
+          <pricingTier>F1</pricingTier>  
+          <region>eastus2</region>  
+          <runtime> 
+            <os>Linux</os>  
+            <javaVersion>Java 8</javaVersion>  
+            <webContainer>Tomcat 10.0</webContainer> 
+          </runtime>  
+          <deployment> 
+            <resources> 
+              <resource> 
+                <directory>${project.basedir}/target</directory>  
+                <includes> 
+                  <include>target/${jar-file-name}.jar</include> 
+                </includes> 
+              </resource> 
+            </resources> 
+          </deployment> 
+        </configuration> 
       </plugin>
     </plugins>
   </build>
