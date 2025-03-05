@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/bikes")
-@CrossOrigin("https://sprint-boot-angular-ui.herokuapp.com/")
+@CrossOrigin("https://spring-boot-angular-app-hweveuhdbrghb2a9.eastus2-01.azurewebsites.net/")
 public class BikesController {
 
   @Autowired
