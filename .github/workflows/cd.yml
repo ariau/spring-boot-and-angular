@@ -23,16 +23,10 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Set up Maven
-        uses: stCarolas/setup-maven@v5
-        with:
-          maven-version: 3.8.2
       - name: Azure CLI script file
         uses: azure/cli@v2
         with:
-          azcliversion: '2.70.0'
+          azcliversion: '2.66.0'
           inlineScript: |
-            echo "Packaging application..."
-            mvn package
             echo "Deploying to Azure..."
             mvn azure-webapp:deploy
