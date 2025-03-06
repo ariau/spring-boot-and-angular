@@ -26,5 +26,4 @@ jobs:
         uses: azure/cli@v2
         with:
           azcliversion: latest
-          inlineScript: |
-            az webapp deploy --resource-group "ResourceMoverRG-eastus2-eastus-eus2" --name "springBootAngularApp" --src-path bike-0.0.1-SNAPSHOT.jar --type jar --async true
+          run: mvn package azure-webapp:deploy 
