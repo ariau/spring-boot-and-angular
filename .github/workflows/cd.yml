@@ -27,6 +27,6 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            sudo apt-get install -y maven
+            apt-get install -y maven
             set -e
             mvn azure-webapp:deploy || { echo 'Deploy failed'; exit 1; }
