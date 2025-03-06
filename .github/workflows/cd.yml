@@ -28,12 +28,6 @@ jobs:
       - name: Azure CLI script file
         uses: azure/cli@v2
         with:
-          azcliversion: '2.70.0'
-          azureSubscription: 'subscription'
-          scriptType: 'bash'
-          scriptLocation: 'inlineScript'
+          azcliversion: latest
           inlineScript: |
-            echo "Packaging application..."
-            mvn package
-            echo "Deploying to Azure..."
             mvn azure-webapp:deploy
