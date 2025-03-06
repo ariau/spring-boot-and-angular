@@ -27,6 +27,4 @@ jobs:
         uses: azure/cli@v2
         with:
           azcliversion: '2.66.0'
-          inlineScript: |
-            echo "Deploying to Azure..."
-            mvn azure-webapp:deploy
+          script: mvn azure-webapp:deploy
