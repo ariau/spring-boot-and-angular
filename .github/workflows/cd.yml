@@ -26,5 +26,9 @@ jobs:
       - name: Azure CLI script file
         uses: azure/cli@v2
         with:
-          azcliversion: '2.66.0'
-          script: mvn azure-webapp:deploy
+          azcliversion: '2.70.0'
+          inlineScript: |
+            echo "Packaging application..."
+            mvn package
+            echo "Deploying to Azure..."
+            mvn azure-webapp:deploy
