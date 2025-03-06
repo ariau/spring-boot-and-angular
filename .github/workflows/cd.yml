@@ -7,7 +7,6 @@ on:
 
 jobs:
   deploy:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -30,4 +29,5 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            mvn azure-webapp:deploy
+            set -e
+            mvn azure-webapp:deploy || { echo 'Deploy failed'; exit 1; }
