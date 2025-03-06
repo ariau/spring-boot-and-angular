@@ -16,15 +16,6 @@ jobs:
         with:
           java-version: '8'
           distribution: 'temurin'
-      - name: Download Maven
-        run: |
-          curl -sL https://downloads.apache.org/maven/maven-3/3.9.8/binaries/apache-maven-3.9.8-bin.zip -o maven.zip
-          apt-get update
-          apt-get -y install unzip
-          unzip -d /usr/share maven.zip
-          rm maven.zip
-          ln -s /usr/share/apache-maven-3.9.8/bin/mvn /usr/bin/mvn
-          echo "M2_HOME=/usr/share/apache-maven-3.9.8" | tee -a /etc/environment
       - name: Build
         run: mvn clean install
       - name: Login to Azure
@@ -37,4 +28,4 @@ jobs:
           azcliversion: latest
           inlineScript: |
             set -e
-            mvn azure-webapp:deploy || { echo 'Deploy failed'; exit 1; }
+            ./mvnw azure-webapp:deploy || { echo 'Deploy failed'; exit 1; }
