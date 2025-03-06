@@ -29,6 +29,9 @@ jobs:
         uses: azure/cli@v2
         with:
           azcliversion: '2.70.0'
+          azureSubscription: 'subscription'
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
           inlineScript: |
             echo "Packaging application..."
             mvn package
