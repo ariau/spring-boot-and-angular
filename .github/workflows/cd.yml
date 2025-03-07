@@ -27,7 +27,7 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Deploy with AzureCLI@2
-        uses: azure/CLI@2
+        uses: azure/CLI@v2
         with:
           azcliversion: latest
           inlineScript: |
