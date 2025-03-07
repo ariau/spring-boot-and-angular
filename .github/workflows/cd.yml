@@ -8,35 +8,21 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    
     steps:
-      - uses: actions/checkout@v2
-      - name: Download JAR Artifact
-        uses: actions/download-artifact@v3
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v4
         with:
-          name: app-jar
-          path: target/
-      - name: Set up Java
-        uses: actions/setup-java@v2
+          name: java-app
+      
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v3
         with:
-          java-version: '8'
-          distribution: 'temurin'
-      - name: Install Maven
-        run: sudo apt-get update && sudo apt-get install -y maven
-      - name: Verify Maven Installation
-        run: mvn -version
-      - name: Build
-        run: mvn clean install
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Deploy with AzureCLI@2
-        uses: azure/CLI@v2
-        with:
-          azcliversion: latest
-          inlineScript: |
-            az webapp deploy \
-              --resource-group ResourceMoverRG-eastus2-eastus-eus2 \
-              --name Spring-boot-angular-app \
-              --src-path target/bike-0.0.1-SNAPSHOT.jar
+          app-name: 'Spring-boot-angular-app'
+          slot-name: 'Production'
+          package: '*.jar'
+          publish-profile: ${{ secrets.AzureAppService_PublishProfile_8baa84ff59b048edbbd1b138ccca5458 }}
