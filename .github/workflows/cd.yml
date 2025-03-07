@@ -26,5 +26,9 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Deploy azure webapp
-        run: mvn package azure-webapp:deploy
+      - name: Azure CLI script file
+        uses: azure/cli@v2
+        with:
+          azcliversion: latest
+          inlineScript: | 
+            mvn package azure-webapp:deploy
