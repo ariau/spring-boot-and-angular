@@ -32,5 +32,5 @@ jobs:
           inlineScript: |
             az webapp deploy \
               --resource-group ResourceMoverRG-eastus2-eastus-eus2 \
-              --name springBootAngularApp \
+              --name Spring-boot-angular-app \
               --src-path target/*.jar
