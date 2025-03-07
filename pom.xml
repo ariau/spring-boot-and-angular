@@ -182,7 +182,7 @@
           <runtime> 
             <os>Linux</os>  
             <javaVersion>Java 8</javaVersion>  
-            <webContainer>TOMCAT 9.0</webContainer>
+            <webContainer>JAVA</webContainer>
           </runtime>
           <deployment>
             <resources>
