@@ -29,6 +29,7 @@ jobs:
       - name: Deploy with AzureCLI@2
         uses: azure/CLI@2
         with:
+          azcliversion: latest
           inlineScript: |
             az webapp deploy \
               --resource-group ResourceMoverRG-eastus2-eastus-eus2 \
