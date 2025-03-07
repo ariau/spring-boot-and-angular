@@ -20,6 +20,13 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
       working-directory: ${{ github.workspace }}
+
+    - name: Upload JAR Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: app-jar
+        path: target/*.jar
+          
     - name: Azure WebApp
       uses: Azure/webapps-deploy@v3
       with:
