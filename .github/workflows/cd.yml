@@ -16,6 +16,10 @@ jobs:
         with:
           java-version: '8'
           distribution: 'temurin'
+      - name: Install Maven
+        run: sudo apt-get update && sudo apt-get install -y maven
+      - name: Verify Maven Installation
+        run: mvn -version
       - name: Build
         run: mvn clean install
       - name: Login to Azure
