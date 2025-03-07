@@ -178,10 +178,11 @@
           <appName>Spring-boot-angular-app</appName>  
           <pricingTier>F1</pricingTier>  
           <region>eastus2</region>  
+          <deploymentType>jar</deploymentType>
+          <webContainer>TOMCAT 9.0</webContainer>
           <runtime> 
             <os>Linux</os>  
             <javaVersion>Java 8</javaVersion>  
-            <webContainer>Java SE</webContainer> 
           </runtime>  
           <deployment>
             <resources>
