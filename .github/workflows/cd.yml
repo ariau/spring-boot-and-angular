@@ -26,6 +26,11 @@ jobs:
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: Deploy to Azure Web App
-        run: |
-          mvn clean package azure-webapp:deploy
+      - name: Deploy with AzureCLI@2
+        uses: azure/CLI@2
+        with:
+          inlineScript: |
+            az webapp deploy \
+              --resource-group ResourceMoverRG-eastus2-eastus-eus2 \
+              --name springBootAngularApp \
+              --src-path target/*.jar
