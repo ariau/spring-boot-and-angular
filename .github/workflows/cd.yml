@@ -27,4 +27,5 @@ jobs:
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: Deploy to Azure Web App
-        run: mvn clean package azure-webapp:deploy
+        run: |
+          mvn azure-spring-apps:deploy
